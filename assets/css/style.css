@@ -353,6 +353,15 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   position: relative;
 }
+
+#heromain {
+  width: 100%;
+  height: 5vh;
+  background: url("../img/plain-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+}
+
 #hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
   position: absolute;
   top: 0;

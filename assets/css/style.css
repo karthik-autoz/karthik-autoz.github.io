@@ -18,8 +18,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Georgia", sans-serif;
-  color: #FFFFFF;
+  font-family: "Raleway", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -349,83 +348,151 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: calc(100vh);
-  background: url("../img/Prototype.png") center center;
-  background-size: cover;
+  height: 100vh;
+  background-color: rgba(4, 12, 21, 0.8);
+  overflow: hidden;
   position: relative;
-  padding: 0;
 }
-
-#heroteam {
-  width: 100%;
-  height: calc(15vh);
-  background: url("../img/Prototype.png") center center;
+#hero .carousel, #hero .carousel-inner, #hero .carousel-item, #hero .carousel-item::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+#hero .carousel-item {
   background-size: cover;
-  position: relative;
-  padding: 0;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
-
-#hero:before {
+#hero .carousel-item::before {
   content: "";
-  background: rgba(0, 0, 0, 0.4);
+  background-color: rgba(4, 12, 21, 0.5);
+}
+#hero .carousel-container {
+  display: flex;
+  align-items: center;
   position: absolute;
   bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-#hero .container {
-  z-index: 2;
-}
-#hero h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
+  top: 82px;
+  left: 50px;
+  right: 50px;
 }
 #hero h2 {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 35px;
-  font-size: 24px;
+  color: #fff;
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+}
+#hero p {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  color: #fff;
+  margin-top: 10px;
+}
+@media (min-width: 1200px) {
+  #hero p {
+    width: 50%;
+  }
+}
+#hero .carousel-inner .carousel-item {
+  transition-property: opacity;
+  background-position: center top;
+}
+#hero .carousel-inner .carousel-item,
+#hero .carousel-inner .active.carousel-item-start,
+#hero .carousel-inner .active.carousel-item-end {
+  opacity: 0;
+}
+#hero .carousel-inner .active,
+#hero .carousel-inner .carousel-item-next.carousel-item-start,
+#hero .carousel-inner .carousel-item-prev.carousel-item-end {
+  opacity: 1;
+  transition: 0.5s;
+}
+#hero .carousel-inner .carousel-item-next,
+#hero .carousel-inner .carousel-item-prev,
+#hero .carousel-inner .active.carousel-item-start,
+#hero .carousel-inner .active.carousel-item-end {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+#hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
+  background: none;
+  font-size: 30px;
+  line-height: 0;
+  width: auto;
+  height: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.5);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+#hero .carousel-indicators li {
+  cursor: pointer;
+  background: #fff;
+  overflow: hidden;
+  border: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#hero .carousel-indicators li.active {
+  opacity: 1;
+  background: #ed502e;
 }
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 8px 28px;
+  padding: 14px 32px;
   border-radius: 4px;
   transition: 0.5s;
-  border: 2px solid #fff;
+  line-height: 1;
   color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  background: #ed502e;
+  margin-top: 15px;
 }
 #hero .btn-get-started:hover {
-  border-color: #1bac91;
-  background: #1bac91;
-}
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
+  background: #ef6445;
 }
 @media (max-width: 992px) {
   #hero {
-    margin-top: 60px;
-    height: calc(100vh - 60px);
+    height: 100vh;
+  }
+  #hero .carousel-container {
+    text-align: center;
+    top: 74px;
   }
 }
 @media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
   #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
+    font-size: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  #hero .carousel-control-prev, #hero .carousel-control-next {
+    width: 5%;
+  }
+}
+@media (max-height: 500px) {
+  #hero {
+    height: 120vh;
   }
 }
 
@@ -1114,78 +1181,87 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
+.team {
+  background: #fff;
+  padding: 60px 0;
+}
 .team .member {
+  overflow: hidden;
   text-align: center;
-  margin-bottom: 20px;
-  background: #343a40;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  transition: 0.3s;
+}
+.team .member .member-img {
   position: relative;
   overflow: hidden;
 }
-.team .member .member-info {
-  opacity: 0;
+.team .member .member-img:after {
   position: absolute;
-  bottom: 0;
-  top: 0;
+  content: "";
   left: 0;
-  right: 0;
-  transition: 0.2s;
-}
-.team .member .member-info-content {
-  position: absolute;
-  left: 50px;
-  right: 0;
   bottom: 0;
-  transition: bottom 0.4s;
-}
-.team .member .member-info-content h4 {
-  font-weight: 700;
-  margin-bottom: 2px;
-  font-size: 18px;
-  color: #fff;
-}
-.team .member .member-info-content span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-  color: #fff;
+  height: 100%;
+  width: 100%;
+  background: url(../img/team-shape.svg) no-repeat center bottom;
+  background-size: contain;
+  z-index: 1;
 }
 .team .member .social {
   position: absolute;
-  left: -50px;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  transition: left ease-in-out 0.3s;
-  background: rgba(11, 35, 65, 0.5);
-  text-align: center;
+  right: -100%;
+  top: 30px;
+  opacity: 0;
+  border-radius: 4px;
+  transition: 0.5s;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 2;
 }
 .team .member .social a {
   transition: color 0.3s;
+  color: rgba(1, 41, 112, 0.5);
+  margin: 15px 12px;
   display: block;
-  color: #fff;
-  margin-top: 15px;
+  line-height: 0;
+  text-align: center;
 }
 .team .member .social a:hover {
-  color: #ed502e;
+  color: rgba(1, 41, 112, 0.8);
 }
 .team .member .social i {
   font-size: 18px;
-  margin: 0 2px;
 }
-.team .member:hover .member-info {
-  background: linear-gradient(0deg, rgba(11, 35, 65, 0.9) 0%, rgba(11, 35, 65, 0.8) 20%, rgba(0, 212, 255, 0) 100%);
-  opacity: 1;
-  transition: 0.4s;
+.team .member .member-info {
+  padding: 10px 15px 20px 15px;
 }
-.team .member:hover .member-info-content {
-  bottom: 30px;
-  transition: bottom 0.4s;
+.team .member .member-info h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #012970;
+}
+.team .member .member-info span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #aaaaaa;
+}
+.team .member .member-info p {
+  font-style: italic;
+  font-size: 14px;
+  padding-top: 15px;
+  line-height: 26px;
+  color: #5e5e5e;
+}
+.team .member:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
 .team .member:hover .social {
-  left: 0;
-  transition: left ease-in-out 0.3s;
+  right: 8px;
+  opacity: 1;
 }
-
 
 /*--------------------------------------------------------------
 # Breadcrumbs
